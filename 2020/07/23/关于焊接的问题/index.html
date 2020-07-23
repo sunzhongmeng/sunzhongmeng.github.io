@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PCB封装 | sunzhongmeng | 不惧风暴</title>
+  <title>关于焊接的问题 | sunzhongmeng | 不惧风暴</title>
 
   
   <meta name="author" content="sunzhongmeng">
@@ -22,7 +22,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="PCB封装"/>
+  <meta property="og:title" content="关于焊接的问题"/>
 
   <meta property="og:site_name" content="sunzhongmeng"/>
 
@@ -67,14 +67,14 @@
 
   
     
-    <h3 class="article-title"><span>PCB封装</span></h3>
+    <h3 class="article-title"><span>关于焊接的问题</span></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2020/07/23/PCB封装/" rel="bookmark">
-        <time class="entry-date published" datetime="2020-07-23T12:15:36.000Z">
+      <a href="/2020/07/23/关于焊接的问题/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-07-23T12:27:03.000Z">
           2020-07-23
         </time>
       </a>
@@ -87,26 +87,11 @@
   <div class="article-content">
     <div class="entry">
       
-        <h3 id="0402封装"><a href="#0402封装" class="headerlink" title="0402封装"></a>0402封装</h3><p>0402封装使用手工焊接或者手工贴片需要加大间距以便于焊接工具能顺利完成焊接。CYUSB3014开发板的C0402封装如下图所示：</p>
-<img src="https://gitee.com/sunzhongmeng/BlogImages/raw/master/img/Snipaste_2020-07-23_16-50-25.png" style="zoom:50%;" />
-
-<p>焊盘尺寸：0.9mm*0.7mm</p>
-<p>焊盘间距：1.3mm</p>
-<p>丝印尺寸：2.8mm*1.4mm</p>
-<p>手工焊接绝对方便。</p>
-<p>下图为使用Library Expert Pro 19设计出来的0402电阻的封装（<a href="https://item.szlcsc.com/72725.html" target="_blank" rel="noopener">CRCW040210K0FKED</a>）:</p>
-<img src="https://gitee.com/sunzhongmeng/BlogImages/raw/master/img/Snipaste_2020-07-23_16-54-55.png" style="zoom: 67%;" />
-
-<p>焊盘尺寸：0.59mm*0.6mm（圆角矩形，Corner Radius为51%）</p>
-<p>焊盘间距：1.01mm</p>
-<p>无丝印，Top Courtyard尺寸：2mm*1mm</p>
-<p>KiCAD的C_0402_1005Metric封装如下图：</p>
-<img src="https://gitee.com/sunzhongmeng/BlogImages/raw/master/img/Snipaste_2020-07-23_17-01-53.png" style="zoom: 50%;" />
-
-<p>焊盘尺寸：0.59mm*0.64mm</p>
-<p>焊盘间距：0.97mm</p>
-<p>无丝印，F.CrtYd尺寸：1.86mm*0.94mm</p>
-<p>综上述，手工焊接使用CYUSB3014的封装比较方便。</p>
+        <h2 id="焊锡"><a href="#焊锡" class="headerlink" title="焊锡"></a>焊锡</h2><p>焊锡选用有铅焊锡（不要带焊料芯，不要带活性芯），锡含量63%铅含量37%，熔点低 浸润性好 焊完杂质少 好清洗。</p>
+<h2 id="助焊剂"><a href="#助焊剂" class="headerlink" title="助焊剂"></a>助焊剂</h2><p>助焊剂要跟焊锡丝和清洗工艺配套使用，助焊剂用rma218</p>
+<h2 id="清洗剂"><a href="#清洗剂" class="headerlink" title="清洗剂"></a>清洗剂</h2><p>洗板水用crc2016</p>
+<h2 id="排风扇"><a href="#排风扇" class="headerlink" title="排风扇"></a>排风扇</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>1.<a href="https://oscarliang.com/soldering-iron-buyers-guide/#third-hand" target="_blank" rel="noopener">WHAT SOLDERING IRON, SOLDER, AND SOLDERING TOOLS SHOULD I BUY?</a></p>
+<p>2.<a href="https://www.sparkfun.com/products/10242" target="_blank" rel="noopener">GregDavill使用的无铅焊锡</a></p>
 
       
     </div>
