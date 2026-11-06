@@ -78,6 +78,40 @@ Notes/
 
 相对资源链接必须落在 `content/` 内，构建会检查解析到的 Markdown 链接和图片是否存在。不要使用 `C:\...` 等本地绝对路径。推荐资源名称不含空格；特殊字符需进行 URL 编码。引用式图片和链接可在网站中解析；原始 HTML 资源链接不受自动重写与校验支持，优先用 Markdown 语法。
 
+## 导入其他来源的笔记
+
+将 Markdown 笔记、图片、代码和其他附件放在一个文件夹中，保留笔记原有的相对目录关系。导入工具递归处理该文件夹，原始文件保持不变。仅支持 UTF-8 编码的 `.md` 笔记，不负责将 Word、PDF 或网页转换为 Markdown。
+
+在项目根目录运行（脚本仅使用 Python 标准库，无需额外安装）：
+
+```powershell
+# 先预览，不写入文件；路径有空格时保留引号
+.\.venv\Scripts\python.exe tools/import_notes.py "D:\待整理\FPGA笔记" --category electronics/fpga --name fpga-import
+
+# 确认清单后执行导入
+.\.venv\Scripts\python.exe tools/import_notes.py "D:\待整理\FPGA笔记" --category electronics/fpga --name fpga-import --apply
+
+# 按现有部署流程构建并检查
+.\.venv\Scripts\python.exe website/check.py
+```
+
+`--category` 默认为 `imported`，可使用多级分类；`--name` 默认为源文件夹名，建议为每批资料指定唯一、稳定的名称。上述示例会生成：
+
+```text
+content/notes/electronics/fpga/fpga-import/  Markdown，保留源目录层级
+content/images/fpga-import/                常见图片
+content/code/fpga-import/                  常见代码、配置、HTML 等源码
+content/attachments/fpga-import/           PDF、压缩包及其他文件
+```
+
+工具更新 Markdown 内联链接、图片和引用式链接，支持中文、URL 编码、括号、标题、查询参数和锚点；代码块和行内代码保持原样。笔记之间的链接也会更新。所有文件都会复制，包括没有被正文引用的附件；不会下载网络资源。代码和附件内容不做改写，如程序依赖跨类型文件的相对路径，运行前需自行调整。
+
+缺失资源、指向导入目录外的本地链接、绝对本机路径，以及目标同名但内容不同的文件，都会在写入前报错。相同内容重复导入会跳过，不覆盖已有文件；执行写入失败会移除本次新建的文件。更新已有导入时可使用新的 `--name`，核对后自行整理旧版本。
+
+Wiki/Obsidian 的 `[[链接]]`、`![[图片]]` 和本地原始 HTML 资源链接需先转换为标准 Markdown；当前网站不支持这些资源自动重写，脚本遇到时会提示。导入源不能位于 `content` 内，不能包含 `content`，不支持符号链接或目录联接。请仅在导入文件夹中放入准备进入网站的资料。
+
+导入后的内容沿用当前网站的本地、服务器和 GitHub Pages 部署流程；脚本不会自动发布。
+
 ## 查询与回顾
 
 - 首页全文搜索覆盖标题、正文、目录分类与标签，支持多个空格分隔的关键词；在正文区域按 `/` 打开全站搜索弹窗。
